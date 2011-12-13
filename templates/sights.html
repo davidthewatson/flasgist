@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+{% block image %}
+    <div class="hero-unit"
+      style="background-image:url('{{ url_for('static',
+      filename='img/leica.jpg') }}');">
+        <h1 style="color:white;">sights</h1>
+      </div>
+    <ul class="breadcrumb">
+  <li><a href="/">Home</a> <span class="divider">/</span></li>
+  <li class="active">Sights</li>
+</ul>
+    {% endblock %}
+{% block body %}
+    <div class="topbar">
+    <div class="fill">
+    <div class="container">
+    <a class="brand" href="/">davidwatson.org</a>
+    <ul class="nav">
+    <li class="active"><a href="/sights/">sights</a></li>
+    <li><a href="/sounds/">sounds</a></li>
+    <li><a href="/software/">software</a></li>
+    </ul>
+        <p style="float: right;"><span class="label warning">Contact</span> <a href="mailto:davidthewatson@gmail.com">davidthewatson@gmail.com</a></p>
+    </div>
+    </div>
+    </div>
+  <div class="row">
+    <div class="span16">
+<object width="940" height="705"> <param name="flashvars" value="offsite=true&lang=en-us&page_show_url=%2Fphotos%2Fdavidwatson%2Fsets%2F72157627023466056%2Fshow%2F&page_show_back_url=%2Fphotos%2Fdavidwatson%2Fsets%2F72157627023466056%2F&set_id=72157627023466056&jump_to="></param> <param name="movie" value="http://www.flickr.com/apps/slideshow/show.swf?v=109615"></param> <param name="allowFullScreen" value="true"></param><embed type="application/x-shockwave-flash" src="http://www.flickr.com/apps/slideshow/show.swf?v=109615" allowFullScreen="true" flashvars="offsite=true&lang=en-us&page_show_url=%2Fphotos%2Fdavidwatson%2Fsets%2F72157627023466056%2Fshow%2F&page_show_back_url=%2Fphotos%2Fdavidwatson%2Fsets%2F72157627023466056%2F&set_id=72157627023466056&jump_to=" width="940" height="705"></embed></object>
+    </div>
+</div>
+{% endblock %}

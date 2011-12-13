@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>davidwatson.org</title>
+<meta name="description" content="The personal website of David Watson">
+<meta name="author" content="David Watson">
+
+<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+<!--[if lt IE 9]>
+<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<!-- Le styles -->
+<link rel="stylesheet" type="text/css"
+href="/__autoindex__/autoindex.css" />
+<link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css">
+
+
+
+<style type="text/css">
+body {
+padding-top: 60px;
+}
+</style>
+
+<!-- Le fav and touch icons -->
+<link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
+<link rel="apple-touch-icon" href="{{ url_for('static', filename='img/apple-touch-icon.png') }}">
+<link rel="apple-touch-icon" sizes="72x72" href="{{ url_for('static', filename='img/apple-touch-icon-72x72.png') }}">
+<link rel="apple-touch-icon" sizes="114x114" href="{{ url_for('static', filename='img/apple-touch-icon-114x114.png') }}">
+</head>
+
+<body>
+
+<div class="container">
+  {% block image %}
+  {% endblock %}
+</div>
+<div class="container">
+<div class="row">
+<div class="span16">
+  {% block body %}
+  {% endblock %}
+  </div>
+</div>
+  <div class="hero-unit" style="margin-top: 20px; padding-top: 10px; padding-bottom: 0px;"> 
+<div class="row">
+<div class="span-one-third" style="width: 260px;">
+  <p style="font-size: 100%; line-height: 150%;">My name is David Watson. I'm a creative person from a small
+  town in Western Pennsylvania called Fallston. I went to school
+  in the Beaver and New Brighton school districts before graduating from Duquesne University in Pittsburgh.</p>
+</div>
+<div class="span-one-third"  style="width: 260px;">
+  <p style="font-size: 100%; line-height: 150%;">
+  I met my wife, Wendy teaching
+  at Mars High School where I taught the drum line and she taught the
+  color guard. After graduation, we lived in Boston and Seattle before
+  returning to the Pittsburgh area.</p>
+</div>
+<div class="span-one-third"  style="width: 260px;">
+  <p style="font-size: 100%; line-height: 150%;">This site chronicles my ideas, photographs, music, and
+  technology. I hope you find something of value here. If you'd like to collaborate, please <a
+  href="http://www.linkedin.com/in/davidthewatson">contact me on
+  Linked In</a> or at the email address above. Thanks for visiting!</p>
+</div>
+</div>
+</div>
+  <footer>
+<p style="float: left;"><b>&copy; David Watson
+2011</b></p><p style="float: right;"><b>Powered by <a href="http://twitter.github.com/bootstrap/">Bootstrap</a>, <a href="http://flask.pocoo.org/">Flask</a>, <a href="https://github.com/">Github</a>, <a href="http://www.heroku.com/">Heroku</a>,
+<a href="http://python.org/">Python</a>, <a href="http://docs.python-requests.org/en/latest/index.html">Requests</a> and <a href="http://www.tornadoweb.org/">Tornado</a></b></p>
+</footer>
+</div> 
+</body>
+</html>

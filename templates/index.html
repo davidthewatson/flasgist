@@ -1,0 +1,113 @@
+{% extends "layout.html" %}
+{% block image %}
+    <div class="hero-unit"
+      style="background-image:url('{{ url_for('static',
+      filename='img/david_thinker.jpg') }}');">
+        <h1 style="color:white;">home</h1>
+      </div>
+<ul class="breadcrumb">
+  {% if l|length == 1: %}
+  <li><a href="/">Home</a><span class="divider">/</span></li>   
+  <li class="active">{{l[0]['filename']}}</li>
+  {% else %}
+    <li>Home</li> 
+  {% endif %}
+</ul>
+    {% endblock %}
+
+      {% block body %}
+
+    <div class="topbar">
+    <div class="fill">
+    <div class="container">
+    <a class="brand" href="/">davidwatson.org</a>
+    <ul class="nav">
+    <li><a href="/sights/">sights</a></li>
+    <li><a href="/sounds/">sounds</a></li>
+    <li><a href="/software/">software</a></li>
+    </ul>
+    <p style="float: right;"><span class="label warning">Contact</span> <a href="mailto:davidthewatson@gmail.com">davidthewatson@gmail.com</a></p>
+    </div>
+    </div>
+    </div>
+
+{% if l|length == 1: %}
+  <div class="row">
+    <div class="span16">
+      <hr/>
+      </div>
+      </div>
+<div class="row">
+  <div class = "span13">
+    <h2>{{l[0]['description']}}</h2>
+    </div>
+    <div class="span3">
+    <p style="margin-top: 10px;">{{l[0]['date']}}</p>
+  </div>
+  </div>
+  <div class="row">
+    <div class="span16">
+    <p>
+    {{l[0]['content']|markdown|safe}}
+    </p>
+    </div>
+    </div>
+{% else %}
+<div class="row">
+<div class="span16">
+  <table class="zebra-striped">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Date</th>
+        <th>Description</th>
+      </tr>
+      </thead>
+    <tbody>
+      {% for d in l: %}
+       <tr>
+        <td><a href="{{d['filename']}}">{{ d['filename'] }}</a></td>
+        <td>{{ d['date'] }}</td>
+        <td>{{ d['description'] }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+</div>
+<div class="row">
+  <div class="offset6">
+        {% if paginate %}
+        <div class="pagination">
+        <ul>
+        {% if 'first' in paginate.keys() %}
+        <li class="first"><a href="{{ url_for( 'gist',
+         page='first') }}">First</a></li>
+        {% else %}
+        <li class="first disabled"><a href="#">First</a></li>          
+        {% endif %}
+        {% if 'prev' in paginate.keys() %}
+            <li class="prev"><a href="{{url_for( 'gist',
+          page='prev') }}">&larr; Previous</a></li>
+        {% else %}
+            <li class="prev disabled"><a href="#">&larr; Previous</a></li>
+        {% endif %}
+
+        {% if 'next' in paginate.keys() %}
+            <li class="next"><a href="{{ url_for('gist',
+            page='next') }}">Next &rarr;</a></li>
+        {% else %}
+            <li class="next disabled"><a href="#">Next &rarr;</a></li>
+        {% endif %}
+        {% if 'last' in paginate.keys() %}
+        <li class="next"><a href="{{ url_for('gist', page='last')
+            }}">Last</a></li>
+         {% else %}
+            <li class="last disabled"><a href="#">Last</a></li>
+        {% endif %}
+        </div>
+    {% endif %}
+    </div>
+    </div>
+{% endif %}
+{% endblock %}
