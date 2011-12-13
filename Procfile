@@ -1,1 +1,1 @@
-web: python run_tornado.py $PORT --gevent
+web: python run_tornado.py $PORT --tornado
