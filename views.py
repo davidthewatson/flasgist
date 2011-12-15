@@ -21,11 +21,10 @@ app.secret_key = os.environ['secret_key']
 def contact():
     return render_template('about.html')
 
-
+# this is a test
 @app.route('/', methods=['GET'])
 @app.route('/<page>', methods=['GET'])
 def show_entries(page=None):
-    app.logger.debug('hello')
     paginate = None
     if page is None:
         r = requests.get('https://api.github.com', auth=(os.environ['GIST_USR'], os.environ['GIST_PWD']))
@@ -34,21 +33,19 @@ def show_entries(page=None):
         uri = session['paginate'][page]
     else:
         try:
-            page = session['map'][0]['id']
-            uri = 'https://api.github.com/gists/' + page
+            page_id = session['map'][page]
+            uri = 'https://api.github.com/gists/' + page_id
         except:
             abort(404)
     r = requests.get(uri, auth=(os.environ['GIST_USR'], os.environ['GIST_PWD']))
     if r.status_code == 200:
-        if page is not None and page.isdigit():
-            gists = [json.loads(r.content)]
-        else:
-            gists = json.loads(r.content)
+        gists = json.loads(r.content)
+        if type(gists) == dict:
+            gists = [gists]
         if 'link' in r.headers.keys():
             paginate = link_parser(r.headers['link'])
             session['paginate'] = paginate
         l = []
-        app.logger.debug(gists)
         for gist in gists:
             id = gist['id']
             this_gist = requests.get('https://api.github.com/gists/' + id)
@@ -59,7 +56,11 @@ def show_entries(page=None):
                            'description': content['description'],
                            'content': content['files'][filename]['content'],
                            'id': id}) for filename in content['files'].keys()]
-                session['map'] = l
+                d = {}
+                if len(l) > 1:
+                    for item in l:
+                        d[item['filename']] = item['id']
+                    session['map'] = d
         return render_template('index.html', l = l, paginate=paginate)
     abort(r.status_code)
 
