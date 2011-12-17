@@ -2,7 +2,7 @@
 {% block image %}
 <div class="hero-unit"
   style="background-image:url('{{ url_for('static',
-  filename='img/apple_store_window_color.jpg') }}');">
+  filename='img/software.jpg') }}');">
   <h1 style="color:white;">software</h1>
 </div>
 <ul class="breadcrumb">
@@ -16,9 +16,19 @@
 <div class="container">
   <a class="brand" href="/">davidwatson.org</a>
   <ul class="nav">
+    <li><a href="/ideas/">ideas</a></li>    
     <li><a href="/sights/">sights</a></li>
     <li><a href="/sounds/">sounds</a></li>
     <li class="active"><a href="/software/">software</a></li>
+            <li class="dropdown" data-dropdown="dropdown">
+              <a href="#" class="menu">links</a>
+              <ul class="menu-dropdown">
+                <li><a href="https://gist.github.com/davidthewatson">gist</a></li>
+		<li><a href="http://www.flickr.com/photos/davidwatson/">flickr</a></li>
+                <li><a href="http://www.youtube.com/davidthewatson">youtube</a></li>
+                <li><a href="https://github.com/davidthewatson/">github</a></li>
+	      </ul>
+            </li>
   </ul>
           <p style="float: right;"><span class="label warning">Contact</span> <a href="mailto:davidthewatson@gmail.com">davidthewatson@gmail.com</a></p>
 </div>
@@ -30,7 +40,6 @@ src="https://a248.e.akamai.net/assets.github.com/img/30f550e0d38ceb6ef5b81500c64
 alt="Fork me on GitHub"></a>
 <div class="row">
 <div class="span16">
-<p>You can find all of my open source software on <a href="https://github.com/davidthewatson/">my github page</a>.</p>
   <table class="zebra-striped">
     <thead>
       <tr>

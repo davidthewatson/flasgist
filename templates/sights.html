@@ -2,7 +2,7 @@
 {% block image %}
     <div class="hero-unit"
       style="background-image:url('{{ url_for('static',
-      filename='img/leica.jpg') }}');">
+      filename='img/sights.jpg') }}');">
         <h1 style="color:white;">sights</h1>
       </div>
     <ul class="breadcrumb">
@@ -16,9 +16,19 @@
     <div class="container">
     <a class="brand" href="/">davidwatson.org</a>
     <ul class="nav">
+    <li><a href="/ideas/">ideas</a></li>      
     <li class="active"><a href="/sights/">sights</a></li>
     <li><a href="/sounds/">sounds</a></li>
     <li><a href="/software/">software</a></li>
+            <li class="dropdown" data-dropdown="dropdown">
+              <a href="#" class="menu">links</a>
+              <ul class="menu-dropdown">
+                <li><a href="https://gist.github.com/davidthewatson">gist</a></li>
+		<li><a href="http://www.flickr.com/photos/davidwatson/">flickr</a></li>
+                <li><a href="http://www.youtube.com/davidthewatson">youtube</a></li>
+                <li><a href="https://github.com/davidthewatson/">github</a></li>
+	      </ul>
+            </li>    
     </ul>
         <p style="float: right;"><span class="label warning">Contact</span> <a href="mailto:davidthewatson@gmail.com">davidthewatson@gmail.com</a></p>
     </div>
@@ -26,8 +36,7 @@
     </div>
   <div class="row">
     <div class="span16">
-<p>You can find all of my photographs at <a href="http://www.flickr.com/photos/davidwatson/">my flickr page</a>.</p>
-<iframe width="940" height="705" src="http://photosession.flickr.com/s/khratfg" frameborder="0" allowfullscreen></iframe>
+<object type="text/html" data="http://www.flickr.com/slideShow/index.gne?group_id=&user_id=56656528@N00&set_id=72157627023466056&text=" width="940" height="705"></object>
     </div>
 </div>
 {% endblock %}

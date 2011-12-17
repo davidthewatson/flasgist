@@ -21,10 +21,9 @@ app.secret_key = os.environ['secret_key']
 def contact():
     return render_template('about.html')
 
-# this is a test
-@app.route('/', methods=['GET'])
-@app.route('/<page>', methods=['GET'])
-def show_entries(page=None):
+@app.route('/ideas/<page>', methods=['GET'])
+@app.route('/ideas/', methods=['GET'])
+def ideas(page=None):
     paginate = None
     if page is None:
         r = requests.get('https://api.github.com', auth=(os.environ['GIST_USR'], os.environ['GIST_PWD']))
@@ -61,8 +60,13 @@ def show_entries(page=None):
                     for item in l:
                         d[item['filename']] = item['id']
                     session['map'] = d
-        return render_template('index.html', l = l, paginate=paginate)
+        return render_template('ideas.html', l = l)
     abort(r.status_code)
+    
+
+@app.route('/', methods=['GET'])
+def index():
+    return render_template('index.html')
 
 
 @app.route('/favicon.ico')
