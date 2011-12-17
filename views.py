@@ -17,10 +17,6 @@ app = Flask(__name__)
 app.jinja_env.filters['markdown'] = to_markdown
 app.secret_key = os.environ['secret_key']
 
-@app.route('/about/', methods=['GET'])
-def contact():
-    return render_template('about.html')
-
 @app.route('/ideas/<page>', methods=['GET'])
 @app.route('/ideas/', methods=['GET'])
 def ideas(page=None):
@@ -95,7 +91,10 @@ def link_parser(s):
     tokens = s.split(',')
     d = {}
     for pairs in tokens:
-        link_rel = pairs.split(';')
-        link, rel = link_rel[0].strip()[1:-1], link_rel[1].split('=')[1].strip()[1:-1]
-        d[rel] = link
+        split_pairs(pairs, d)
     return d
+
+def split_pairs(pairs, d):
+    link_rel = pairs.split(';')
+    link, rel = link_rel[0].strip()[1:-1], link_rel[1].split('=')[1].strip()[1:-1]
+    d[rel] = link
