@@ -37,7 +37,19 @@
     </div>
   <div class="row">
     <div class="span16">
-<img style="visibility:hidden;width:0px;height:0px;" border=0 width=0 height=0 src="http://c.gigcount.com/wildfire/IMP/CXNID=2000002.11NXC/bT*xJmx*PTEzMjQzNTM4NjE4NTYmcHQ9MTMyNDM1Mzg2NTg1NSZwPTkwMjA1MSZkPSZnPTEmb2Y9MA==.gif" /><object id="ci_03052_o" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="940" height="705"><param name="movie" value="http://apps.cooliris.com/embed/cooliris.swf?t=1307582197"/><param name="allowFullScreen" value="true"/><param name="allowScriptAccess" value="always"/><param name="bgColor" value="#121212" /><param name="flashvars" value="feed=api%3A%2F%2Fwww.flickr.com%2F%3Fuser%3D56656528%40N00" /><param name="wmode" value="opaque" /><embed id="ci_03052_e" type="application/x-shockwave-flash" src="http://apps.cooliris.com/embed/cooliris.swf?t=1307582197" width="940" height="705" allowFullScreen="true" allowScriptAccess="always" bgColor="#121212" flashvars="feed=api%3A%2F%2Fwww.flickr.com%2F%3Fuser%3D56656528%40N00" wmode="opaque"></embed></object>
+<div id="galleria" style="height:705px; width:940px;">
+</div>
     </div>
 </div>
+<script>
+$('#galleria').galleria({
+    flickr: 'set:72157628525541961',
+    flickrOptions: {
+        sort: 'interestingness-asc',
+        description: true,
+        max: 100
+    }
+});
+</script>
+
 {% endblock %}
