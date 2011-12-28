@@ -37,24 +37,18 @@ def page(page):
 @app.route('/ideas/', methods=['GET'])
 def ideas():
     uri = 'https://api.github.com/gists/starred' #users/davidthewatson/gists'
-    if not hasattr(g, 'r'):
-        r = requests.get(uri, auth=(os.environ['GIST_USR'], os.environ['GIST_PWD']))
+    r = requests.get(uri, auth=(os.environ['GIST_USR'], os.environ['GIST_PWD']))
     if r.status_code == 200:
-        l = []
         gists = json.loads(r.content)
         if 'link' in r.headers.keys():
             paginate = link_parser(r.headers['link'])
             session['paginate'] = paginate
-        gist_list = [gist['id'] for gist in gists]
-        l = get_gists(gist_list)
-        return render_template('ideas.html', l = l)
+        return render_template('ideas.html', l = get_gists(gist['id'] for gist in gists))
     abort(r.status_code)
 
 def get_gists(gists):
-    l = []
-    rs = [async.get('https://api.github.com/gists/' + gist) for gist in gists]
-    l = [ process_gist(r) for r in async.map(rs) ]
-    return l
+    return [ process_gist(r) for r in async.map(async.get('https://api.github.com/gists/' + gist) for gist in gists ) ]
+
     
 def process_gist(gist):
     content = json.loads(gist.content)
