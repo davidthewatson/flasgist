@@ -1,7 +1,4 @@
 from views import app
-import tornado.wsgi
-import tornado.httpserver
-import tornado.ioloop
 import argparse
 
 
@@ -19,7 +16,15 @@ def parse_arguments():
 
 dev_environment = parse_arguments()
 port=dev_environment.port
-container = tornado.wsgi.WSGIContainer(app)
-server = tornado.httpserver.HTTPServer(container)
-server.listen(port)
-tornado.ioloop.IOLoop.instance().start()
+if dev_environment.gevent:
+    from gevent.wsgi import WSGIServer
+    http_server = WSGIServer(('', port), app)
+    http_server.serve_forever()
+else:
+    import tornado.wsgi
+    import tornado.httpserver
+    import tornado.ioloop
+    container = tornado.wsgi.WSGIContainer(app)
+    server = tornado.httpserver.HTTPServer(container)
+    server.listen(port)
+    tornado.ioloop.IOLoop.instance().start()
