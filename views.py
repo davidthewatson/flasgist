@@ -87,6 +87,10 @@ def software():
         repositories = d['repositories']
     return render_template('software.html', repos=repositories)
 
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html'), 404
+    
 def link_parser(s):
     tokens = s.split(',')
     d = {}
