@@ -32,8 +32,7 @@ def page(page):
                 r = requests.get(uri, auth=(os.environ['GIST_USR'], os.environ['GIST_PWD']))
                 if r.status_code == 200:
                     gists = json.loads(r.content)
-                    g.l = get_gists(gist['id'] for gist in gists)
-                    id = [d['id'] for d in g.l if d['filename'] == page][0]
+                    id = [d['id'] for d in get_gists(gist['id'] for gist in gists) if d['filename'] == page][0]
                     uri = 'https://api.github.com/gists/' + id
         except:
             abort(404)
@@ -55,8 +54,7 @@ def ideas():
         if 'link' in r.headers.keys():
             paginate = link_parser(r.headers['link'])
             session['paginate'] = paginate
-        g.l = get_gists(gist['id'] for gist in gists)
-        return render_template('ideas.html', title='ideas - ', l = g.l)
+        return render_template('ideas.html', title='ideas - ', l = get_gists(gist['id'] for gist in gists))
     abort(r.status_code)
 
 def get_gists(gists):
