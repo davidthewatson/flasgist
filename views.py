@@ -31,7 +31,7 @@ def page(page):
         l = []
         gist = json.loads(r.content)
         l.append(process_gist(r))
-        return render_template('ideas.html', l = l)
+        return render_template('ideas.html', title=l[0]['description'] + ' - ', l=l)
     abort(r.status_code)        
 
 @app.route('/ideas/', methods=['GET'])
@@ -43,7 +43,7 @@ def ideas():
         if 'link' in r.headers.keys():
             paginate = link_parser(r.headers['link'])
             session['paginate'] = paginate
-        return render_template('ideas.html', l = get_gists(gist['id'] for gist in gists))
+        return render_template('ideas.html', title='ideas - ', l = get_gists(gist['id'] for gist in gists))
     abort(r.status_code)
 
 def get_gists(gists):
@@ -72,11 +72,11 @@ def favicon():
 
 @app.route('/sights/', methods=['GET'])
 def sights():
-    return render_template('sights.html')
+    return render_template('sights.html', title='sights - ')
 
 @app.route('/sounds/', methods=['GET'])
 def sounds():
-    return render_template('sounds.html')
+    return render_template('sounds.html', title='sounds - ')
 
 @app.route('/software/', methods=['GET'])
 def software():
@@ -85,7 +85,7 @@ def software():
     if r.status_code == 200:
         d = json.loads(r.content)
         repositories = d['repositories']
-    return render_template('software.html', repos=repositories)
+    return render_template('software.html', title='software - ', repos=repositories)
 
 @app.route('/2008/02/python-couchdb-rocks.html')
 @app.route('/2007/05/broadcom-4306-on-feisty-fawn.html')
@@ -95,7 +95,7 @@ def redirect_to_new_page():
     
 @app.errorhandler(404)
 def page_not_found(e):
-    return render_template('404.html'), 404
+    return render_template('404.html', title='404 page not found - '), 404
     
 def link_parser(s):
     tokens = s.split(',')
