@@ -21,11 +21,23 @@ app.secret_key = os.environ['secret_key']
 def page(page):
     if page in ['first', 'next', 'prev', 'last']:
         uri = session['paginate'][page]
-    else:
+    elif page in session.keys():
         try:
             uri = 'https://api.github.com/gists/' + session[page]
         except:
             abort(404)
+    else:
+        try:
+                uri = 'https://api.github.com/gists/starred' #users/davidthewatson/gists'
+                r = requests.get(uri, auth=(os.environ['GIST_USR'], os.environ['GIST_PWD']))
+                if r.status_code == 200:
+                    gists = json.loads(r.content)
+                    g.l = get_gists(gist['id'] for gist in gists)
+                    id = [d['id'] for d in g.l if d['filename'] == page][0]
+                    uri = 'https://api.github.com/gists/' + id
+        except:
+            abort(404)
+        
     r = requests.get(uri, auth=(os.environ['GIST_USR'], os.environ['GIST_PWD']))
     if r.status_code == 200:
         l = []
@@ -43,7 +55,8 @@ def ideas():
         if 'link' in r.headers.keys():
             paginate = link_parser(r.headers['link'])
             session['paginate'] = paginate
-        return render_template('ideas.html', title='ideas - ', l = get_gists(gist['id'] for gist in gists))
+        g.l = get_gists(gist['id'] for gist in gists)
+        return render_template('ideas.html', title='ideas - ', l = g.l)
     abort(r.status_code)
 
 def get_gists(gists):
