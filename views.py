@@ -87,6 +87,12 @@ def software():
         repositories = d['repositories']
     return render_template('software.html', repos=repositories)
 
+@app.route('/2008/02/python-couchdb-rocks.html')
+@app.route('/2007/05/broadcom-4306-on-feisty-fawn.html')
+def redirect_to_new_page():
+    page = str.replace(request.url[request.url.rfind('/')+1:], '-', '_')
+    return redirect(url_for('page', page=page), 301)
+    
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template('404.html'), 404
