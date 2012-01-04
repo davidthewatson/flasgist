@@ -100,6 +100,8 @@ def software():
 
 @app.route('/2008/02/python-couchdb-rocks.html')
 @app.route('/2007/05/broadcom-4306-on-feisty-fawn.html')
+@app.route('/2007/01/happy-new-year-mythtv.html')
+@app.route('/2007/07/you-have-entered-an-invalid-value.html')
 def redirect_to_new_page():
     page = str.replace(request.url[request.url.rfind('/')+1:], '-', '_')
     return redirect(url_for('page', page=page), 301)
