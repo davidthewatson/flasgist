@@ -101,7 +101,7 @@ def software():
 @app.route('/2008/02/python-couchdb-rocks.html')
 @app.route('/2007/05/broadcom-4306-on-feisty-fawn.html')
 @app.route('/2007/01/happy-new-year-mythtv.html')
-@app.route('/2007/07/you-have-entered-an-invalid-value.html')
+@app.route('/2007/07/you-have-entered-invalid-value.html')
 @app.route('/2008/11/acer-restore-failed-reason-0xd0000017.html')
 @app.route('/2007/02/on-merits-of-evans-ec-snare-drum-head.html')
 def redirect_to_new_page():
