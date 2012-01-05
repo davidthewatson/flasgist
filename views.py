@@ -104,6 +104,7 @@ def software():
 @app.route('/2007/07/you-have-entered-invalid-value.html')
 @app.route('/2008/11/acer-restore-failed-reason-0xd0000017.html')
 @app.route('/2007/02/on-merits-of-evans-ec-snare-drum-head.html')
+@app.route('/2009/09/snow-leopard-install.html')
 def redirect_to_new_page():
     page = str.replace(request.url[request.url.rfind('/')+1:], '-', '_')
     return redirect(url_for('page', page=page), 301)
