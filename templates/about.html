@@ -1,0 +1,93 @@
+{% extends "layout.html" %}
+{% block image %}
+<div class="hero-unit"
+  style="background-image:url('{{ url_for('static',
+  filename='img/david_watson.jpg') }}');">
+  <h1 style="color:white;">about</h1>
+      <p style="color: white;">One man's search for meaning</p>
+</div>
+<ul class="breadcrumb">
+  <li><a href="/">David Watson</a> <span class="divider">/</span></li>
+  <li class="active">About</li>
+</ul>
+{% endblock %}
+{% block body %}
+<div class="topbar">
+<div class="fill">
+<div class="container">
+  <a class="brand" href="/">davidwatson.org</a>
+  <ul class="nav">
+    <li><a href="/ideas/">ideas</a></li>    
+    <li><a href="/sights/">sights</a></li>
+    <li><a href="/sounds/">sounds</a></li>
+    <li><a href="/software/">software</a></li>
+    <li class="active"><a href="/about/">about</a></li>
+            <li class="dropdown" data-dropdown="dropdown">
+              <a href="#" class="menu">links</a>
+              <ul class="menu-dropdown">
+                <li><a href="https://gist.github.com/davidthewatson">gist</a></li>
+		<li><a href="http://www.flickr.com/photos/davidwatson/">flickr</a></li>
+                <li><a href="http://www.youtube.com/davidthewatson">youtube</a></li>
+                <li><a href="https://github.com/davidthewatson/">github</a></li>
+	      </ul>
+            </li>
+  </ul>
+          <p style="float: right;"><span class="label">Contact</span> <a href="mailto:david@davidwatson.org">david@davidwatson.org</a></p>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="span8">
+<h2>Sights</h2>
+<p>I've been interested in photography since I was a teenager. I began
+  shooting with a Canon AL-1 and Canon T70 - both 35mm film cameras. I
+  moved on to Nikon film cameras before settling into various digitals
+  such as the Olympus E-500. I've since settled on a Canon T2i and a
+  Panasonic LX-5 - a formidable combination.</p>
+<p>But talking about cameras is like asking a chef what brand of oven
+  he uses. It's not about the camera, it's <a href="/sights/">about
+  the photographs</a>.</p>
+<p>My current interests in photography are primarily around urban and
+  nature landscapes, but I'm not one to be pinned down.</p>
+<h2>Sounds</h2>
+<p>I've been a musician most of my life, learning to play the drums
+  when I was seven or eight years old. In addition to playing drums, I
+  also played double bass in the junior high orchestra and electric
+  bass in the high school jazz band. It's all about the rhythm with
+  me.</p>
+<p>I studied music at Duquesne University while playing timpani with
+  the Abbey Brass. In addition, I've played in various bands around
+  the Pittsburgh area, and I've done studio work with <a href="http://www.nashvilletrax.com/">Nashville Trax</a>.</p>
+<p>I'm currently the drummer with <a href="http://uptown-rb.com/">Uptown Rhythm & Brass</a>. We're a
+  Pittsburgh-based band playing covers of classic motown, R&B, and
+  rock & roll.</p>
+</div>
+<div class="span8">
+  <h2>Software</h2>
+<p>The website you are reading was constructed by me using <a href="http://www.smallpieces.com/">small
+  pieces, loosely joined</a>. This website runs on heroku, creating a
+  thin facade around various <em>content delivery</em> networks, enabling
+  the site to function without providing <em>content management</em>
+  facilities. Instead, the ideas, sights, sounds, and software
+  sections are hosted remotely by gist, flickr, youtube, and github,
+  respectively. This allows me to focus on the work that I enjoy most
+  - design, writing, connecting dots. To learn more, see <a
+  href="/ideas/the_new_blog_software_flask_plus_gist_equals_flasgist.html">the
+  new blog software</a>.</p>
+<p>As a <a href="http://en.wikipedia.org/wiki/DevOps">Dev Ops</a> professional, I enjoy collaborating with
+  interdisciplinary teams at the intersection of art, science,
+  business, and technology. As a generalist, I'm comfortable across desktop, mobile, and the
+  web. As a libertarian, I'm happiest working with open source software
+  enablers such as github. As an agnostic, I'm comfortable working on Linux, Mac, or
+  Windows. As an idealist, I enjoy pursuing nascent technology when it's
+  better, faster, cheaper, like heroku. As a pragmatist, I balance my idealism by realizing that the only
+  artifact that really matters is shipping maintainable, reliable,
+  usable software, mostly in python. As a creative, I believe in imbuing the work with a sense of
+  whimsy. As a designer, I have an enormous need for symmetry. As a minimalist, I begin by asking a single question: what's the
+  simplest thing that could possibly work? As an obsessive, I prefer a work style that is agile and
+  iterative. As a completionist, I see the big picture and think in
+  terms of complete product solutions. Finally, as a perfectionist, I'm never satisfied until my work is
+  asymptotically approaching perfection.</p>
+</div>
+</div>
+{% endblock %}

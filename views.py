@@ -98,6 +98,10 @@ def software():
         repositories = d['repositories']
     return render_template('software.html', title='software - ', repos=repositories)
 
+@app.route('/about/', methods=['GET'])
+def about():
+    return render_template('about.html', title='about - ')
+
 @app.route('/2008/02/python-couchdb-rocks.html')
 @app.route('/2007/05/broadcom-4306-on-feisty-fawn.html')
 @app.route('/2007/01/happy-new-year-mythtv.html')
