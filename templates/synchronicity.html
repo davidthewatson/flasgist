@@ -1,18 +1,17 @@
-
 {% extends "layout.html" %}
 {% block image %}
     <div class="hero-unit"
       style="background-image:url('{{ url_for('static',
-      filename='img/ideas.jpg') }}');">
-        <h1 style="color:white;">ideas</h1>
-      <p style="color: white;">Construct meaning from consciousness</p>
+      filename='img/synchronicity.jpg') }}');">
+        <h1 style="color:white;">synchronicity</h1>
+      <p style="color: white;">Constructing meaning from coincidence</p>
       </div>
 <ul class="breadcrumb">
   {% if l|length == 1: %}
-  <li><a href="/">David Watson</a><span class="divider">/</span></li>   
-  <li class="active"><a href="/ideas">ideas</a><span class="divider">/</span>{{l[0]['filename']}}</li>
+  <li><a href="/">davidwatson.org</a><span class="divider">/</span></li>   
+  <li class="active"><a href="/synchronicity">synchronicity</a><span class="divider">/</span>{{l[0]['filename']}}</li>
   {% else %}
-    <li><a href="/">David Watson</a><span class="divider">/</span>Ideas</li> 
+    <li><a href="/">davidwatson.org</a><span class="divider">/</span>synchronicity</li> 
   {% endif %}
 </ul>
     {% endblock %}
@@ -24,20 +23,11 @@
     <div class="container">
     <a class="brand" href="/">davidwatson.org</a>
     <ul class="nav">
-    <li class="active"><a href="/ideas/">ideas</a></li>
+    <li class="active"><a href="/synchronicity/">synchronicity</a></li>
     <li><a href="/sights/">sights</a></li>
     <li><a href="/sounds/">sounds</a></li>
     <li><a href="/software/">software</a></li>
-    <li><a href="/about/">about</a></li>
-            <li class="dropdown" data-dropdown="dropdown">
-              <a href="#" class="menu">links</a>
-              <ul class="menu-dropdown">
-                <li><a href="https://gist.github.com/davidthewatson">gist</a></li>
-		<li><a href="http://www.flickr.com/photos/davidwatson/">flickr</a></li>
-                <li><a href="http://www.youtube.com/davidthewatson">youtube</a></li>
-                <li><a href="https://github.com/davidthewatson/">github</a></li>
-	      </ul>
-            </li>    
+    <li><a href="/self/">self</a></li>
     </ul>
     <p style="float: right;"><span class="label">Contact</span> <a href="mailto:david@davidwatson.org">david@davidwatson.org</a></p>
     </div>
@@ -74,7 +64,7 @@
     <tbody>
       {% for d in l: %}
        <tr>
-        <td><a href="/ideas/{{d['filename']}}">{{ d['filename'] }}</a></td>
+        <td><a href="/synchronicity/{{d['filename']}}">{{ d['filename'] }}</a></td>
         <td>{{ d['date'] }}</td>
         <td>{{ d['description'] }}</td>
       </tr>

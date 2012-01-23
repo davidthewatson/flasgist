@@ -2,12 +2,12 @@
 {% block image %}
     <div class="hero-unit"
       style="background-image:url('{{ url_for('static',
-      filename='img/david_watson.jpg') }}');">
-        <h1 style="color:white;">david watson</h1>
-      <p style="color: white;">One man's search for meaning</p>
+      filename='img/404.jpg') }}');">
+        <h1 style="color:white;">404</h1>
+      <p style="color: white;">Page not found</p>
       </div>
 <ul class="breadcrumb">
-<li>David Watson</li> 
+<li>davidwatson.org</li> 
 </ul>
 {% endblock %}
       {% block body %}
@@ -16,20 +16,11 @@
     <div class="container">
     <a class="brand" href="/">davidwatson.org</a>
     <ul class="nav">
-    <li><a href="/ideas/">ideas</a></li>
+    <li><a href="/synchronicity/">synchronicity</a></li>
     <li><a href="/sights/">sights</a></li>
     <li><a href="/sounds/">sounds</a></li>
     <li><a href="/software/">software</a></li>
-            <li class="dropdown" data-dropdown="dropdown">
-              <a href="#" class="menu">links</a>
-              <ul class="menu-dropdown">
-                <li><a href="https://gist.github.com/davidthewatson">gist</a></li>
-		<li><a href="http://www.flickr.com/photos/davidwatson/">flickr</a></li>
-                <li><a href="http://www.youtube.com/davidthewatson">youtube</a></li>
-                <li><a href="https://github.com/davidthewatson/">github</a></li>
-	      </ul>
-            </li>
-    
+    <li><a href="/self/">self</a></li>
     </ul>
     <p style="float: right;"><span class="label">Contact</span> <a href="mailto:davidthewatson@gmail.com">davidthewatson@gmail.com</a></p>
     </div>
@@ -37,40 +28,44 @@
      </div>
      <div class="row">
        <div class="span16">
-	   <h1>Page Not Found - Maybe what you're looking for has
-    moved?</h1>
+	   <h1>The meaning you seek lies within...</h1>
 	 </div>
        </div>
     <div class="row">
       <div class="span6 hero-unit"
       style="background-image:url('{{ url_for('static',
-      filename='img/ideas.jpg') }}');">
-<h2 style="color:white;">ideas</h2>
-	<p style="color: white;">Construct meaning from consciousness</p>
-	<p><a class="btn large" href="/ideas/">ideas &raquo;</a></p>  
+      filename='img/synchronicity.jpg') }}');">
+	<a href="/synchronicity/"> 
+	<h2 style="color:white;">synchronicity</h2>
+	<p style="color: white;">Constructing meaning from coincidence</p>
+	</a>
       </div>
       <div class="span6 hero-unit"
       style="background-image:url('{{ url_for('static',
       filename='img/sights.jpg') }}');">
+	<a href="/sights/"> 
 <h2 style="color:white;">sights</h2>
-	<p style="color: white;">Construct meaning from perspective</p>
-	<p><a class="btn large" href="/sights/">sights &raquo;</a></p>  
+	<p style="color: white;">Constructing meaning from
+    perspective</p>
+	</a>
       </div>
       </div>
     <div class="row">
       <div class="span6 hero-unit"
       style="background-image:url('{{ url_for('static',
       filename='img/sounds.jpg') }}');">
+	<a href="/sounds/"> 
 <h2 style="color:white;">sounds</h2>
-	<p style="color: white;">Construct meaning from emotion</p>
-	<p><a class="btn large" href="/sounds/">sounds &raquo;</a></p>  
+	<p style="color: white;">Constructing meaning from emotion</p>
+	</a>
       </div>
       <div class="span6 hero-unit"
       style="background-image:url('{{ url_for('static',
       filename='img/software.jpg') }}');">
-<h2 style="color:white;">software</h2>
-	<p style="color: white;">Constructs meaning from logic</p>
-	<p><a class="btn large" href="/software/">software &raquo;</a></p>  
+	<a href="/software/"> 
+	<h2 style="color:white;">software</h2>
+	<p style="color: white;">Constructing meaning from logic</p>
+	</a>
       </div>
       </div>
 	  

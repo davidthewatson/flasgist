@@ -17,7 +17,7 @@ app = Flask(__name__)
 app.jinja_env.filters['markdown'] = to_markdown
 app.secret_key = os.environ['secret_key']
 
-@app.route('/ideas/<page>', methods=['GET'])
+@app.route('/synchronicity/<page>', methods=['GET'])
 def page(page):
     if page in ['first', 'next', 'prev', 'last']:
         uri = session['paginate'][page]
@@ -42,11 +42,11 @@ def page(page):
         l = []
         gist = json.loads(r.content)
         l.append(process_gist(r))
-        return render_template('ideas.html', title=l[0]['description'] + ' - ', l=l)
+        return render_template('synchronicity.html', title=l[0]['description'] + ' - ', l=l)
     abort(r.status_code)        
 
-@app.route('/ideas/', methods=['GET'])
-def ideas():
+@app.route('/synchronicity/', methods=['GET'])
+def synchronicity():
     uri = 'https://api.github.com/gists/starred' #users/davidthewatson/gists'
     r = requests.get(uri, auth=(os.environ['GIST_USR'], os.environ['GIST_PWD']))
     if r.status_code == 200:
@@ -54,7 +54,7 @@ def ideas():
         if 'link' in r.headers.keys():
             paginate = link_parser(r.headers['link'])
             session['paginate'] = paginate
-        return render_template('ideas.html', title='ideas - ', l = get_gists(gist['id'] for gist in gists))
+        return render_template('synchronicity.html', title='synchronicity - ', l = get_gists(gist['id'] for gist in gists))
     abort(r.status_code)
 
 def get_gists(gists):
@@ -98,9 +98,9 @@ def software():
         repositories = d['repositories']
     return render_template('software.html', title='software - ', repos=repositories)
 
-@app.route('/about/', methods=['GET'])
-def about():
-    return render_template('about.html', title='about - ')
+@app.route('/self/', methods=['GET'])
+def self():
+    return render_template('self.html', title='self - ')
 
 @app.route('/2008/02/python-couchdb-rocks.html')
 @app.route('/2007/05/broadcom-4306-on-feisty-fawn.html')
