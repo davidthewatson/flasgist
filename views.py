@@ -112,6 +112,17 @@ def self():
 def redirect_to_new_page():
     page = str.replace(request.url[request.url.rfind('/')+1:], '-', '_')
     return redirect(url_for('page', page=page), 301)
+
+@app.route('/ideas/python_couchdb_rocks.html')
+@app.route('/ideas/broadcom_4306_on_feisty_fawn.html')
+@app.route('/ideas/happy_new_year_mythtv.html')
+@app.route('/ideas/you_have_entered_invalid_value.html')
+@app.route('/ideas/acer_restore_failed_reason_0xd0000017.html')
+@app.route('/ideas/on_merits_of_evans_ec_snare_drum_head.html')
+@app.route('/ideas/snow_leopard_install.html')
+def redirect_ideas_to_synchronicity():
+    page = str.replace(request.url, 'ideas', 'synchronicity')
+    return redirect(page, 301)
     
 @app.errorhandler(404)
 def page_not_found(e):
