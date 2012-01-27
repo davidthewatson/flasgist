@@ -98,9 +98,9 @@ def software():
         repositories = d['repositories']
     return render_template('software.html', title='software - ', repos=repositories)
 
-@app.route('/self/', methods=['GET'])
-def self():
-    return render_template('self.html', title='self - ')
+@app.route('/soul/', methods=['GET'])
+def soul():
+    return render_template('soul.html', title='soul - ')
 
 @app.route('/2008/02/python-couchdb-rocks.html')
 @app.route('/2007/05/broadcom-4306-on-feisty-fawn.html')
@@ -109,6 +109,7 @@ def self():
 @app.route('/2008/11/acer-restore-failed-reason-0xd0000017.html')
 @app.route('/2007/02/on-merits-of-evans-ec-snare-drum-head.html')
 @app.route('/2009/09/snow-leopard-install.html')
+@app.route('/2007/05/ext3cow-versioning-filesystem-for-linux.html')
 def redirect_to_new_page():
     page = str.replace(request.url[request.url.rfind('/')+1:], '-', '_')
     return redirect(url_for('page', page=page), 301)
