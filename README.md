@@ -8,8 +8,8 @@ FlasGist stores its blog data as Gist on Github. The heavy lifting is done via p
 
 ![davidwatson.org: List of Starred Gists](https://github.com/davidthewatson/flasgist/raw/master/screenshots/davidwatsonorg-listofstarredgists.png)
 
-![github.com Specific Starred Gist](https://github.com/davidthewatson/flasgist/raw/master/screenshots/github-listofspecificgist.png)
+![github.com Specific Starred Gist](https://github.com/davidthewatson/flasgist/raw/master/screenshots/github-specificstarredgist.png)
 
-![davidwatson.org: Specific Starred Gist](https://github.com/davidthewatson/flasgist/raw/master/screenshots/davidwatsonorg-specificgist.png)
+![davidwatson.org: Specific Starred Gist](https://github.com/davidthewatson/flasgist/raw/master/screenshots/davidwatsonorg-specificstarredgist.png)
 
 You can see flasgist running at <a href="http://davidwatson.org/">davidwatson.org</a>.
