@@ -4,11 +4,21 @@ A blog based on <a href="http://twitter.github.com/bootstrap/">Bootstrap</a>, <a
 
 FlasGist stores its blog data as Gist on Github. The heavy lifting is done via python-requests asynchronously. It uses the Github Gist API to access this data. Right now it uses youtube and flickr embed for the media, but I will convert those to API calls also. Github repositories are listed on the software page via the github API also.
 
+##FlasGist works like this: 
+
+###I create a starred gist on github
+
+![github.com Specific Starred Gist](https://github.com/davidthewatson/flasgist/raw/master/screenshots/github-specificstarredgist.png)
+
+###I save the starred gist on github; it shows up on github
+
 ![github.com: List of Starred Gists](https://github.com/davidthewatson/flasgist/raw/master/screenshots/github-listofstarredgists.png)
+
+###A user hits my blog; the blog software makes an API request and gets the starred gists from github
 
 ![davidwatson.org: List of Starred Gists](https://github.com/davidthewatson/flasgist/raw/master/screenshots/davidwatsonorg-listofstarredgists.png)
 
-![github.com Specific Starred Gist](https://github.com/davidthewatson/flasgist/raw/master/screenshots/github-specificstarredgist.png)
+### If the user clicks a specific link, the content for that article is returned from github and rendered as markdown or html
 
 ![davidwatson.org: Specific Starred Gist](https://github.com/davidthewatson/flasgist/raw/master/screenshots/davidwatsonorg-specificstarredgist.png)
 
