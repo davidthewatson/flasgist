@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Flasgist by davidthewatson</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Flasgist</h1>
+        <p>Flask using Github's gist as blog data store</p>
+        <p class="view"><a href="https://github.com/davidthewatson/flasgist">View the Project on GitHub <small>davidthewatson/flasgist</small></a></p>
+        <ul>
+          <li><a href="https://github.com/davidthewatson/flasgist/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/davidthewatson/flasgist/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/davidthewatson/flasgist">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>FlasGist</h1>
+
+<p>A blog based on <a href="http://twitter.github.com/bootstrap/">Bootstrap</a>, <a href="http://flask.pocoo.org/">Flask</a>, <a href="http://www.gevent.org/">Gevent</a>, <a href="https://github.com/">Github</a>, <a href="http://www.heroku.com/">Heroku</a>, <a href="http://python.org/">Python</a>, and <a href="http://docs.python-requests.org/en/latest/index.html">Requests</a></p>
+
+<p>FlasGist stores its blog data as Gist on Github. The heavy lifting is done via python-requests asynchronously. It uses the Github Gist API to access this data. Right now it uses youtube and flickr embed for the media, but I will convert those to API calls also. Github repositories are listed on the software page via the github API also.</p>
+
+<h2>FlasGist works like this</h2>
+
+<h3>I create a starred gist on github</h3>
+
+<p><img src="https://github.com/davidthewatson/flasgist/raw/master/screenshots/github-specificstarredgist.png" alt="github.com Specific Starred Gist"></p>
+
+<h3>I save the starred gist on github; it shows up on github</h3>
+
+<p><img src="https://github.com/davidthewatson/flasgist/raw/master/screenshots/github-listofstarredgists.png" alt="github.com: List of Starred Gists"></p>
+
+<h3>A user hits my blog; flasgist makes an API request, gets the starred gists from github, and displays them</h3>
+
+<p><img src="https://github.com/davidthewatson/flasgist/raw/master/screenshots/davidwatsonorg-listofstarredgists.png" alt="davidwatson.org: List of Starred Gists"></p>
+
+<h3>If the user clicks a specific link, the content for that starred gist is returned from github and rendered as markdown or html</h3>
+
+<p><img src="https://github.com/davidthewatson/flasgist/raw/master/screenshots/davidwatsonorg-specificstarredgist.png" alt="davidwatson.org: Specific Starred Gist"></p>
+
+<p>This precludes me from having to implement content management functions such as content creation, editing, updating, and deleting. In addition, I get versioning and forking of content for free - this is beneficial for both annotation of existing content and attribution of content that I did not create, but rather may have extended.</p>
+
+<p>You can see flasgist running at <a href="http://davidwatson.org/">davidwatson.org</a>.</p>
+      </section>
+    </div>
+    <footer>
+      <p>Project maintained by <a href="https://github.com/davidthewatson">davidthewatson</a></p>
+      <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
+    </footer>
+    <!--[if !IE]><script>fixScale(document);</script><!--<![endif]-->
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-31053798-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>
