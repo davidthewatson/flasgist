@@ -7,6 +7,8 @@ import threading
 import requests
 from requests import async
 import json
+from flask_googlefed import GoogleAuth
+
 # helpers
 def to_markdown(value):
     """Converts a string into valid Markdown."""
