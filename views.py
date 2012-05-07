@@ -87,7 +87,7 @@ def openid():
 
 @app.route('/.well-known/host-meta')
 def openid():
-    return send_from_directory(join(app.root_path, 'static'), 'host-meta', mimetype='application/xrds+xml')
+    return send_from_directory(join(app.root_path, 'static'), 'host-meta')
 
 
 @app.route('/sights/', methods=['GET'])
