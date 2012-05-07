@@ -1,4 +1,4 @@
-from flask import Flask, request, session, g, redirect, url_for, abort, render_template, flash, send_from_directory 
+from flask import Flask, request, session, g, redirect, url_for, abort, render_template, flash, send_from_directory
 from os.path import join, curdir
 import os
 import markdown
@@ -7,12 +7,12 @@ import threading
 import requests
 from requests import async
 import json
-# helpers                                                                                                                                                                                                                                                                     
+# helpers
 def to_markdown(value):
     """Converts a string into valid Markdown."""
     return markdown.markdown(value)
 
-# create our little application :)                                                                                                                                                                                                                                            
+# create our little application :)
 app = Flask(__name__)
 app.jinja_env.filters['markdown'] = to_markdown
 app.secret_key = os.environ['secret_key']
@@ -36,14 +36,14 @@ def page(page):
                     uri = 'https://api.github.com/gists/' + id
         except:
             abort(404)
-        
+
     r = requests.get(uri, auth=(os.environ['GIST_USR'], os.environ['GIST_PWD']))
     if r.status_code == 200:
         l = []
         gist = json.loads(r.content)
         l.append(process_gist(r))
         return render_template('synchronicity.html', title=l[0]['description'] + ' - ', l=l)
-    abort(r.status_code)        
+    abort(r.status_code)
 
 @app.route('/synchronicity/', methods=['GET'])
 def synchronicity():
@@ -60,7 +60,7 @@ def synchronicity():
 def get_gists(gists):
     return [ process_gist(r) for r in async.map(async.get('https://api.github.com/gists/' + gist) for gist in gists ) ]
 
-    
+
 def process_gist(gist):
     content = json.loads(gist.content)
     session[content['files'].keys()[0]] = content['id']
@@ -78,8 +78,11 @@ def index():
 
 @app.route('/favicon.ico')
 def favicon():
-    return send_from_directory(join(app.root_path, 'static'),'favicon.ico', mimetype='image/vnd.microsoft.icon')
+    return send_from_directory(join(app.root_path, 'static'), 'favicon.ico', mimetype='image/vnd.microsoft.icon')
 
+@app.route('/openid')
+def openid():
+    return send_from_directory(join(app.root_path, 'static'), 'openid', mimetype='application/xrds+xml')
 
 @app.route('/sights/', methods=['GET'])
 def sights():
@@ -124,11 +127,11 @@ def redirect_to_new_page():
 def redirect_ideas_to_synchronicity():
     page = str.replace(request.url, 'ideas', 'synchronicity')
     return redirect(page, 301)
-    
+
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template('404.html', title='404 page not found - '), 404
-    
+
 def link_parser(s):
     tokens = s.split(',')
     d = {}
