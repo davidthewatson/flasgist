@@ -2,3 +2,6 @@ flask
 Markdown>=2.0.3
 requests
 gevent
+Flask-GoogleFed==0.1
+Flask-OpenID==1.0.1
+python-openid==2.2.5
