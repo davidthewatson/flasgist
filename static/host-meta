@@ -1,1 +1,1 @@
-Link: <https://www.google.com/accounts/o8/site-xrds?hd=davidwatson.org>; rel="describedby http://reltype.google.com/openid/xrd-op"; type="application/xrds+xml">
+Link: <https://www.google.com/accounts/o8/site-xrds?hd=davidwatson.org; rel="describedby http://reltype.google.com/openid/xrd-op"; type="application/xrds+xml">
