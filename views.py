@@ -16,6 +16,14 @@ def to_markdown(value):
 app = Flask(__name__)
 app.jinja_env.filters['markdown'] = to_markdown
 app.secret_key = os.environ['secret_key']
+app.config['GOOGLE_DOMAIN'] = 'davidwatson.org'
+
+auth = GoogleAuth(app)
+
+@app.route('/super_secret')
+@auth.required
+def secret():
+    return 'ssssshhhhh'
 
 @app.route('/synchronicity/<page>', methods=['GET'])
 def page(page):
