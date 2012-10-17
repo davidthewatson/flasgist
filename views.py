@@ -14,7 +14,6 @@ def to_markdown(value):
     """Converts a string into valid Markdown."""
     return markdown.markdown(value)
 
-# create our little application :)
 app = Flask(__name__)
 app.jinja_env.filters['markdown'] = to_markdown
 app.secret_key = os.environ['secret_key']
