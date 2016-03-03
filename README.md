@@ -1,6 +1,6 @@
 # Update
 
-I'm no longer using FlasGist. Instead, I've designed a similar system called <a href="https://github.com/davidthewatson/zegibl">ZeGiBl</a> entirely using client-side JavaScript.
+I'm no longer using FlasGist. Instead, I've designed a similar system called <a href="https://github.com/davidthewatson/zegibl">ZeGiBl</a> entirely using client-side JavaScript instead of server-side python. Thus, there is no server footprint as the system functions entirely using github pages, gists, static HTML, and javascript.
 
 ## FlasGist
 
