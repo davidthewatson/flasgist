@@ -28,4 +28,4 @@ FlasGist stores its blog data as Gist on Github. The heavy lifting is done via p
 
 This precludes me from having to implement content management functions such as content creation, editing, updating, and deleting. In addition, I get versioning and forking of content for free - this is beneficial for both annotation of existing content and attribution of content that I did not create, but rather may have extended.
 
-You can see flasgist running at <a href="http://davidwatson.org/">davidwatson.org</a>.
+<a href="http://davidwatson.org/">davidwatson.org</a>
